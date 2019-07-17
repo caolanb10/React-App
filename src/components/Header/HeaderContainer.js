@@ -9,7 +9,8 @@ const initialState = {};
 const handlers = {};
 
 const createProps = makeStyles()
+
 export default compose(
   withTheme,
-  withProps()
+  withProps(createProps),
 )(Header);
