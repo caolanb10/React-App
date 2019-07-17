@@ -12,16 +12,16 @@ module.exports = function (plop) {
       path: 'screens/{{name}}/{{name}}.js',
       templateFile: 'templates/presentationalTemplate.hbs',
     },
-      {
-        type: 'add',
-        path: 'screens/{{name}}/{{name}}Container.js',
-        templateFile: 'templates/containerTemplate.hbs',
-      },
-      {
-        type: 'add',
-        path: 'screens/{{name}}/{{name}}Styles.js',
-        templateFile: 'templates/stylesTemplate.hbs',
-      },
+    {
+      type: 'add',
+      path: 'screens/{{name}}/{{name}}Container.js',
+      templateFile: 'templates/containerTemplate.hbs',
+    },
+    {
+      type: 'add',
+      path: 'screens/{{name}}/{{name}}Styles.js',
+      templateFile: 'templates/stylesTemplate.hbs',
+    },
     ],
   });
   plop.setGenerator('Component Generator', {
@@ -44,12 +44,12 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'components/{{name}}/{{name}}.css',
+        path: 'components/{{name}}/{{name}}Styles.js',
         templateFile: 'templates/stylesTemplate.hbs',
       },
       {
         type: 'add',
-        path: 'components/{{name}}/index.js',
+        path: 'components/{{name}}/index.jsx',
         templateFile: 'templates/indexTemplate.hbs',
       },
     ],
