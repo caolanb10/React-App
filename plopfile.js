@@ -34,22 +34,22 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'components/{{name}}/{{name}}.jsx',
+        path: 'src/components/{{name}}/{{name}}.jsx',
         templateFile: 'templates/presentationalTemplate.hbs',
       },
       {
         type: 'add',
-        path: 'components/{{name}}/{{name}}Container.js',
+        path: 'src/components/{{name}}/{{name}}Container.js',
         templateFile: 'templates/containerTemplate.hbs',
       },
       {
         type: 'add',
-        path: 'components/{{name}}/{{name}}Styles.js',
+        path: 'src/components/{{name}}/{{name}}Styles.js',
         templateFile: 'templates/stylesTemplate.hbs',
       },
       {
         type: 'add',
-        path: 'components/{{name}}/index.jsx',
+        path: 'src/components/{{name}}/index.jsx',
         templateFile: 'templates/indexTemplate.hbs',
       },
     ],
