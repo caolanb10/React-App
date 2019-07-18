@@ -38,4 +38,16 @@ export const actionCreators = {
   }),
 };
 
+export const watcherSagas = {
+
+};
+
+export const onRoute = {
+
+};
+
+export const workerSagas = {
+
+};
+
 export const selectors = {};
