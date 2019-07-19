@@ -4,6 +4,7 @@ import loginExample from './loginExample';
 import { actionCreators, onRoute } from './ducks';
 
 export const initialState = {
+  // for refactored example this is no longer needed
   recaptchaSuccess: false,
   userName: '',
   password: '',
@@ -21,6 +22,7 @@ export const mapStateToProps = ({ user: recaptchaRequired }) => ({
 
 export const mapDispatchToProps = {
   loginHandler: actionCreators.performLogin,
+  // setRecaptchaSuccess: actionCreators.setRecaptchaSuccess,
 };
 
 export default compose(
