@@ -1,0 +1,6 @@
+@import 'globalvariables.css';
+
+.dialog-heading {
+    font-size: var(--font-lg);
+}
+

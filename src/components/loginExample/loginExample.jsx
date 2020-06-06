@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '@themed-components';
-import { ReCAPTCHA } from 'react-google-recaptcha';
-import LoginDetails from './LoginDetails';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Button } from 'react-toolbox/lib/button';
+import classes from './loginExampleStyles';
+import LoginDetails from '../loginDetails';
 
 const loginExample = ({
   recaptchaSuccess,
@@ -14,11 +15,13 @@ const loginExample = ({
   onChangeUserName,
   onChangePassword,
 }) => (
-  <React.Fragment>
+  <div className={classes.rootClasses}>
+    { recaptchaRequired && (
     <ReCAPTCHA
       sitekey="site key"
       onChange={setRecaptchaSuccess}
     />
+    )}
     <LoginDetails
       onChangeUserName={onChangeUserName}
       onChangePassword={onChangePassword}
@@ -29,7 +32,7 @@ const loginExample = ({
       active={recaptchaRequired ? recaptchaSuccess : true}
       onClick={loginHandler({ userName, password })}
     />
-  </React.Fragment>
+  </div>
 );
 
 loginExample.propTypes = {

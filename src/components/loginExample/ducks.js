@@ -1,19 +1,19 @@
 import {
   all, call, put, takeEvery,
 } from 'redux-saga/effects';
-import { globalActions } from '@feature-global-actions';
-import { loginService } from '@feature-login';
+import { globalActions } from '../global-actions';
+import { loginService } from '../feature-login';
 
 export const actionNameSpace = 'LOGIN';
 export const actionTypes = {
   PERFORM_LOGIN: `${actionNameSpace}/PERFORM_LOGIN`,
   SET_RECAPTCHA_REQUIRED: `${actionNameSpace}/SET_RECAPTCHA_REQUIRED`,
-  // SET_RECAPTCHA_SUCCESS: `${actionNameSpace}/SET_RECAPTCHA_SUCCESS`,
+  SET_RECAPTCHA_SUCCESS: `${actionNameSpace}/SET_RECAPTCHA_SUCCESS`,
 };
 
 export const initialState = {
   recaptchaRequired: false,
-  // recaptchaSuccess: false,
+  recaptchaSuccess: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -28,13 +28,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         recaptchaRequired: action.payload,
       };
-    /*
     case actionTypes.SET_RECAPTCHA_SUCCESS:
       return {
         ...state,
         recaptchaSuccess: action.payload,
       };
-      */
     default:
       return state;
   }
@@ -52,32 +50,33 @@ export const actionCreators = {
     type: actionTypes.SET_RECAPTCHA_REQUIRED,
     payload: recaptchaRequired,
   }),
-  /*
   setRecaptchaSuccess: ({ value }) => ({
     type: actionTypes.SET_RECAPTCHA_SUCCESS,
-    payload: value,
-  })
-  */
+    payload: !!value,
+  }),
 };
 
 export function* performLogin({ userName, password }) {
-  const response = yield call(loginService('POST', { userName, password }));
+  const response = yield call(loginService, {
+    method: 'POST',
+    data: { userName, password },
+  });
   const {
     data: {
       user,
     },
     included: {
-      recaptchaRequired,
+      recaptcha_required: recaptchaRequired,
     },
   } = response;
   if (user) {
     yield put(globalActions.login({ user }));
   } else {
-    yield put(globalActions.loginFailed);
+    yield put(globalActions.loginFailed());
 
     // recaptchaRequired from the response will resolve to true or false
     yield put(actionCreators.setRecaptchaRequired({ recaptchaRequired }));
-    // yield put(actionCreators.setRecaptchaSuccess({ payload: false });
+    yield put(actionCreators.setRecaptchaSuccess({ value: false }));
   }
 }
 
@@ -89,4 +88,5 @@ export function* watcherSagas() {
   ]);
 }
 
-export const selectors = {};
+export const selectors = {
+};

@@ -1,3 +1,33 @@
 {
-    "extends": "airbnb"
+    "env": {
+        "jest": true,
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:jest/all"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "rules": {
+        "jest/prefer-expect-assertions": 0,
+        "jest/prefer-inline-snapshots": 0,
+        "jest/prefer-strict-equal": 0,
+        "jest/expect-expect": 0,
+        "react/forbid-prop-types": 0
+    }
 }

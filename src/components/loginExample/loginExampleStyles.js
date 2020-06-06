@@ -1,7 +1,7 @@
 const classes = {
-root: {
+  root: {
 
-    },
+  },
 };
 
 export default classes;

@@ -1,0 +1,37 @@
+exports['snapshot with no recaptcha required']= `
+<div
+ className="root"
+>
+<LoginDetails
+  onChangeUserName={[Function]}
+  onChangePassword={[Function]}
+  userName={"username"}
+  password={"***"}
+/>
+<Button
+  active={true}
+  onClick={[Function]}
+/>
+</div>
+`;
+
+exports['snapshot with recaptcha required']=`
+<div
+ className="root"
+>
+<ReCAPTCHA
+  sitekey={"site key"}
+  onChange={[Function]}
+/>
+<LoginDetails
+  onChangeUserName={[Function]}
+  onChangePassword={[Function]}
+  userName={"username"}
+  password={"***"}
+/>
+<Button
+  active={false}
+  onClick={[Function]}
+/>
+</div>
+`;

@@ -8,7 +8,7 @@ const initialState = {};
 
 const handlers = {};
 
-const createProps = makeStyles()
+const createProps = makeStyles();
 
 export default compose(
   withTheme,

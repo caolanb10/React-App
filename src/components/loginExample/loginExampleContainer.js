@@ -16,9 +16,11 @@ export const stateHandlers = {
   onChangeUserPassword: () => password => ({ password }),
 };
 
-export const mapStateToProps = ({ user: recaptchaRequired }) => ({
-  recaptchaRequired,
-});
+export const mapStateToProps =
+  ({ user: { recaptchaRequired, recaptchaSuccess } }) => ({
+    recaptchaRequired,
+    recaptchaSuccess,
+  });
 
 export const mapDispatchToProps = {
   loginHandler: actionCreators.performLogin,
